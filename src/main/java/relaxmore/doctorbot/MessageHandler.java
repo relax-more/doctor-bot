@@ -22,6 +22,7 @@ public class MessageHandler {
 
 	@EventMapping
 	public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws IOException {
+		// TODO: add authentication
 		System.out.println("event: " + event);
 		BotApiResponse response = replyMessageHandler.reply(event);
 		System.out.println("Sent messages: " + response);
