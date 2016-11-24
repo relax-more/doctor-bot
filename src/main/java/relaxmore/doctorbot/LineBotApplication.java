@@ -20,10 +20,12 @@ public class LineBotApplication {
      */
     @Bean
     public OkHttpClient.Builder okHttpClientBuilder() {
-        String lineOutBoundUrl = System.getProperty("LINE_OUTBOUND_URL");
-        int lineOutBoundPort = Integer.valueOf(System.getProperty("LINE_OUTBOUND_PORT"));
+        String proxyUrl = System.getenv("LINE_OUTBOUND_URL");
+        String proxyPort = System.getenv("LINE_OUTBOUND_PORT");
+
+        System.out.println("proxyUrl:proxyPort=" + proxyUrl + ":" + proxyPort);
 
         return new OkHttpClient.Builder().proxy(
-                new Proxy(Proxy.Type.HTTP, new InetSocketAddress(lineOutBoundUrl, lineOutBoundPort)));
+                new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxyUrl, Integer.valueOf(proxyPort))));
     }
 }
