@@ -1,0 +1,3 @@
+line.bot:
+  channelToken: ${LINE_BOT_CHANNEL_TOKEN}
+  channelSecret: ${LINE_BOT_CHANNEL_SECRET}
