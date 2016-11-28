@@ -41,7 +41,7 @@ public class ReplyMessageHandler {
         String replyToken = event.getReplyToken();
         List<Message> messages = ImmutableList.of(
                 new TemplateMessage("非対応端末です。LINE を最新にしてください。",
-                        new ButtonsTemplate("", "Q1, 症状はいつ始まりましたか？", "", ImmutableList.of(
+                        new ButtonsTemplate(null, "Q1", "症状はいつ始まりましたか？", ImmutableList.of(
                                 new PostbackAction("12時間以内", "Q1_" + Period.less12h.name()),
                                 new PostbackAction("24時間以内", "Q1_" + Period.less24h.name()),
                                 new PostbackAction("36時間以内", "Q1_" + Period.less36h.name()),
@@ -72,7 +72,7 @@ public class ReplyMessageHandler {
             String replyToken = event.getReplyToken();
             List<Message> messages = ImmutableList.of(
                     new TemplateMessage("非対応端末です。LINE を最新にしてください。",
-                            new ButtonsTemplate("", "Q2, 症状はなんですか？", "", ImmutableList.of(
+                            new ButtonsTemplate(null, "Q2", "症状はなんですか？", ImmutableList.of(
                                     new PostbackAction("咳", "Q2_" + Symptom.cough.name()),
                                     new PostbackAction("湿疹", "Q2_" + Symptom.eczema.name()),
                                     new PostbackAction("熱", "Q2_" + Symptom.fever.name())
