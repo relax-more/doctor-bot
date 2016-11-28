@@ -4,11 +4,12 @@ import org.springframework.stereotype.Repository;
 import relaxmore.doctorbot.model.MedicalRecord;
 
 import java.time.Instant;
+import java.util.HashMap;
 import java.util.Map;
 
 @Repository
 public class UserConsultationStorage {
-    private Map<String, MedicalRecord> recordMap; // TODO: save to storage
+    private Map<String, MedicalRecord> recordMap = new HashMap<>(); // TODO: save to storage
 
     public MedicalRecord get(String userId){
         return recordMap.getOrDefault(userId, new MedicalRecord().setRequestTime(Instant.now()));
